@@ -20,4 +20,8 @@ public class StudentService {
     public Student saveStudent(Student student){
         return studentRepository.save(student);
     }
+
+    public void deleteStudent(Short id) {
+        studentRepository.deleteById(id);
+    }
 }
