@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class StudentController {
@@ -38,6 +39,16 @@ public class StudentController {
     public String deleteStudent(@PathVariable Short id){
         studentService.deleteStudent(id);
         return "redirect:/students";
+    }
+
+    @PostMapping("/student/update/{id}")
+    public String updateStudent(Model model, @PathVariable Short id){
+        Optional<Student> student = studentService.getStudentById(id);
+        if(student.isEmpty()){
+            return "redirect:/students";
+        }
+        model.addAttribute("student", student);
+        return "create_student";
     }
 
 }

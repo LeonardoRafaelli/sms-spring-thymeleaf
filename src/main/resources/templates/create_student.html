@@ -29,7 +29,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class="text-center">Create new Student</h1>
             <div class="card-body">
-                <form th:action="@{/students}" th:object="${student}" method="post">
+                <form id="studentForm" th:object="${student}" method="post">
                     <div class="form-group">
                         <label>
                             Student First Name
@@ -74,5 +74,25 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    function generateUrl(studentId) {
+        if (studentId > 0) {
+            return "/student/update";
+        } else {
+            return "/students";
+        }
+    }
+
+    const studentForm = document.getElementById("studentForm");
+    studentForm.addEventListener("submit", () => {
+        event.preventDefault();
+        const studentId = ${student.Id}
+        const url = generateUrl(studentId);
+        studentForm.action = url
+        studentForm.submit();
+    });
+</script>
 </body>
 </html>

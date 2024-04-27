@@ -47,16 +47,19 @@
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.email}"></td>
-            <td>
+            <td class="d-flex justify-content-between">
                 <form th:action="@{'/student/del/{id}'(id=${student.id})}" th:method="delete">
-                    <!--                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">-->
                     <button id="delete" name="delete" class="btn btn-secondary" type="submit">Delete</button>
+                </form>
+                <form th:action="@{'/student/update/{id}'(id=${student.id})}" th:method="put">
+                    <button id="update" name="update" class="btn btn-secondary" type="submit">Update</button>
                 </form>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
+
 
 </body>
 </html>
