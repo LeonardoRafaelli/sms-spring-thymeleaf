@@ -48,7 +48,13 @@ public class StudentController {
             return "redirect:/students";
         }
         model.addAttribute("student", student);
-        return "create_student";
+        return "update_student";
     }
 
+    @PostMapping("/student/edit")
+    public String saveEditStudent(@ModelAttribute("student") Student student){
+      studentService.saveStudent(student);
+
+      return "students";
+    };
 }
