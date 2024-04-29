@@ -29,7 +29,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class="text-center">Create new Student</h1>
             <div class="card-body">
-                <form id="studentForm" th:object="${student}" method="post">
+                <form id="studentForm" th:action="@{/students}" th:object="${student}" method="post">
                     <div class="form-group">
                         <label>
                             Student First Name

@@ -47,7 +47,7 @@
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.email}"></td>
-            <td class="d-flex justify-content-between">
+            <td class="d-flex justify-content-evenly">
                 <form th:action="@{'/student/del/{id}'(id=${student.id})}" th:method="delete">
                     <button id="delete" name="delete" class="btn btn-danger" type="submit">Delete</button>
                 </form>
