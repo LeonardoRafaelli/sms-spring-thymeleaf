@@ -21,7 +21,7 @@ public class SmsApplication implements CommandLineRunner {
 	// Executes when the application is runned
 	@Override
 	public void run(String... args) throws Exception {
-		Student student = new Student(null, "Leonardo", "Rafaelli", "leonardorafaelli@gmail.com");
+		Student student = new Student(null, "John", "Doe", "johndoe@gmail.com");
 		studentRepository.save(student);
 
 	}
