@@ -2,6 +2,7 @@ package javastudies.sms.controller;
 
 import javastudies.sms.model.entities.Student;
 import javastudies.sms.model.service.StudentService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,14 +48,15 @@ public class StudentController {
         if(student.isEmpty()){
             return "redirect:/students";
         }
-        model.addAttribute("student", student);
+        model.addAttribute("student", student.get());
         return "update_student";
     }
 
-    @PostMapping("/student/edit")
-    public String saveEditStudent(@ModelAttribute("student") Student student){
-      studentService.saveStudent(student);
-
-      return "students";
+    @PostMapping("/student/{id}")
+    public String updateStudent(@PathVariable("id") Short studentId,
+                                  @ModelAttribute("student") Student student,
+                                  Model model){
+        studentService.updateStudent(studentId, student);
+      return "redirect:/students";
     };
 }

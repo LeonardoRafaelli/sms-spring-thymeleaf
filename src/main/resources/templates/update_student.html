@@ -24,12 +24,12 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Edit Student</h1>
+            <h1 class="text-center">Update Student</h1>
             <div class="card-body">
-                <form id="studentForm" th:action="@{/student/edit}" th:object="${student}" method="post">
+                <form id="studentForm" th:action="@{/student/{id} (id=${student.id})}" th:object="${student}" method="post">
                     <div class="form-group">
                         <label>
                             Student First Name
@@ -66,8 +66,8 @@
                             />
                         </label>
                     </div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit Student</button>
+                    <div class="box-footer mt-2">
+                        <button type="submit" class="btn btn-primary">Update Student</button>
                     </div>
                 </form>
             </div>
